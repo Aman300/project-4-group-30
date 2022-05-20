@@ -47,10 +47,7 @@ let createShortUrl = async (req, res) => {
     } else if (!validUrl.isWebUri(data.longUrl)) {
       return res.status(400).send({ status: false, message: "please enter a valid long url" })
 
-    } else if (!/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(data.longUrl)) {
-      return res.status(400).send({ status: false, message: "please enter a valid long url" })
-
-    }
+   } 
 
     let cahcedUrlData = await GET_ASYNC(`${data.longUrl}`)
 
